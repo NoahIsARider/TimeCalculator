@@ -16,13 +16,13 @@ A C++ program that calculates the difference in seconds between two datetime poi
 ## Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/datetime-difference-calculator.git
-cd datetime-difference-calculator
+git clone [https://github.com/yourusername/datetime-difference-calculator](https://github.com/NoahIsARider/TimeCalculator.git
+cd TimeCalculator
 ```
 
 2. Compile with g++:
 ```bash
-g++ main.cpp Time.cpp Date.cpp DateTime.cpp -o datetime_diff
+g++ TimeCalculator.cpp Time.cpp Date.cpp DateTime.cpp -o datetime_diff
 ```
 
 ## Usage
