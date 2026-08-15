@@ -73,14 +73,14 @@ void Time::addMinute(int m) {
 void Time::addHour(int k) {
     hour += k;
     if (hour >= 24) {
-        excessDay = hour / 24;
+        excessDay += hour / 24;
         hour %= 24;
     }
     if (hour < 0) {
-        excessDay = (hour / 24);
-        if (excessDay == 0)
-            excessDay = -1;
-        hour = 24 - (-1) * hour % 24;
+        excessDay += (hour / 24) - 1;
+        hour = 24 - ((-1) * hour) % 24;
+        if (hour == 24)
+            hour = 0;
     }
 }
 

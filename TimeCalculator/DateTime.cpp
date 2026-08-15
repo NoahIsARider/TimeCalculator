@@ -10,8 +10,8 @@ DateTime::DateTime(int y, int m, int d, int h, int min, int s) : Date(y, m, d) {
     excessDay = 0; // 重置
 }
 
-int DateTime::diffSeconds(const DateTime& other) const {
-    int daysDiff = toDays() - other.toDays();
-    int secondsDiff = toSeconds() - other.toSeconds();
+long long DateTime::diffSeconds(const DateTime& other) const {
+    long long daysDiff = toDays() - other.toDays();
+    long long secondsDiff = toSeconds() - other.toSeconds();
     return daysDiff * 24 * 3600 + secondsDiff;
 }

@@ -1,0 +1,34 @@
+# Build directories
+TimeCalculatorGui/build/
+build/
+*/build/
+
+# CMake artifacts
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Visual Studio build output
+x64/
+Debug/
+Release/
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.exe
+*.tlog/
+*.lastbuildstate
+*.recipe
+*.VC.db
+*.VC.opendb
+
+# IDE
+.idea/
+.vs/
+*.user
+*.suo
+
+# Qt
+*.pro.user

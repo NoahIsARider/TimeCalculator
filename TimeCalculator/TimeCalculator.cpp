@@ -62,15 +62,31 @@ int main() {
     int year2, month2, day2, hour2, minute2, second2;
 
     // 提示用户输入第一个日期时间
+    cout << "Enter first datetime (yyyy,m,d,h,min,s): ";
     getline(cin, input1);
     stringstream ss1(input1);
     char comma;
     ss1 >> year1 >> comma >> month1 >> comma >> day1 >> comma >> hour1 >> comma >> minute1 >> comma >> second1;
 
     // 提示用户输入第二个日期时间
+    cout << "Enter second datetime (yyyy,m,d,h,min,s): ";
     getline(cin, input2);
     stringstream ss2(input2);
     ss2 >> year2 >> comma >> month2 >> comma >> day2 >> comma >> hour2 >> comma >> minute2 >> comma >> second2;
+
+    // 基本输入校验（与 README 声称的验证一致）
+    auto valid = [](int y, int mo, int d, int h, int mi, int s) {
+        if (y < 1 || mo < 1 || mo > 12 || h < 0 || h > 23 ||
+            mi < 0 || mi > 59 || s < 0 || s > 59)
+            return false;
+        Date tmp(y, mo, 1);
+        return d >= 1 && d <= tmp.findMaxDay();
+    };
+    if (!valid(year1, month1, day1, hour1, minute1, second1) ||
+        !valid(year2, month2, day2, hour2, minute2, second2)) {
+        cout << "Invalid datetime. Use format: yyyy,m,d,h,min,s" << endl;
+        return 1;
+    }
 
     // 创建DateTime对象
     DateTime dt1(year1, month1, day1, hour1, minute1, second1);

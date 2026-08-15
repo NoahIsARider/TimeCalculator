@@ -8,7 +8,7 @@
 class DateTime : public Date, public Time {
 public:
     DateTime(int y, int m, int d, int h, int min, int s);
-    int diffSeconds(const DateTime& other) const;
+    long long diffSeconds(const DateTime& other) const;
 };
 
 #endif // DATETIME_H

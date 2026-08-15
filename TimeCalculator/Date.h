@@ -11,7 +11,7 @@ public:
     void addDay(int n);
     void addMonth(int n = 1);
     bool isLeapYear() const;
-    int toDays() const;
+    long long toDays() const;
 };
 
 #endif // DATE_H

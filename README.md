@@ -1,4 +1,3 @@
-```markdown
 # DateTime Difference Calculator
 
 A C++ program that calculates the difference in seconds between two datetime points, with proper handling of:
@@ -11,12 +10,50 @@ A C++ program that calculates the difference in seconds between two datetime poi
 📅 Handles dates from year 1 onwards  
 ⏰ Supports 24-hour time format  
 🔄 Automatic time/date overflow handling  
-📈 Validates all datetime components
+📈 Validates all datetime components  
+🖥️ Cross-platform Qt GUI frontend
+
+## Qt GUI Frontend
+
+A desktop GUI built with **Qt Widgets (C++)** that wraps the same core calculation engine. No web browser required.
+
+### Screenshots
+
+Main window with the two datetime editors:
+
+![GUI main window](docs/screenshots/gui_main.png)
+
+After pressing "Calculate difference" (2024-02-23 23:59:59 → 2024-03-01 00:00:01):
+
+![GUI result](docs/screenshots/gui_result.png)
+
+### Building the GUI (Linux / macOS / Windows)
+
+Requirements: CMake 3.16+ and Qt 6 (Qt Widgets).
+
+```bash
+cd TimeCalculatorGui
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j
+```
+
+### Running the GUI
+
+```bash
+./build/TimeCalculatorGui
+```
+
+Pick a start and end datetime with the spin boxes and time pickers, then click
+**Calculate difference**. The result is shown in seconds and broken down into
+days / hours / minutes / seconds.
+
+The GUI reuses the existing core logic (`Date.h`, `Time.h`, `DateTime.h`)
+directly, so results are identical to the console version.
 
 ## Installation
 1. Clone the repository:
 ```bash
-git clone [https://github.com/yourusername/datetime-difference-calculator](https://github.com/NoahIsARider/TimeCalculator.git
+git clone https://github.com/NoahIsARider/TimeCalculator.git
 cd TimeCalculator
 ```
 
@@ -87,7 +124,7 @@ Output: Difference in seconds: 86401
 3. `DateTime::diffSeconds()`  
    Core difference algorithm:
    ```cpp
-   int diff = (days1 - days2) * 86400 + (seconds1 - seconds2);
+   long long diff = (days1 - days2) * 86400 + (seconds1 - seconds2);
    ```
 
 ### Validation Logic
@@ -114,15 +151,3 @@ git push origin feature/new-feature
 
 ## License
 MIT License © 2024 NoahIsARider
-```
-
-This README includes:
-1. Clear installation instructions
-2. Usage examples with input/output samples
-3. Technical implementation details
-4. Contribution guidelines
-5. License information
-6. Validation rules for datetime components
-7. Cross-platform compilation instructions
-
-Would you like me to add any additional sections or modify existing content?

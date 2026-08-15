@@ -57,8 +57,8 @@ bool Date::isLeapYear() const {
     return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
 
-int Date::toDays() const {
-    int days = 0;
+long long Date::toDays() const {
+    long long days = 0;
     for (int y = 1; y < year; y++) {
         bool isLeap = (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0);
         days += isLeap ? 366 : 365;
